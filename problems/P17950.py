@@ -5,13 +5,13 @@ def main():
     HEIGHT, MULTIPLY_TO = map(int, input().split(' '))
     DIV_TO = 1000000007
 
-    multiplyed = 1
+    multiplied = 1
     answer = 0
 
     for __ in range(HEIGHT):
-        multiplyed *= MULTIPLY_TO
-        multiplyed %= DIV_TO
-        answer += int(sys.stdin.readline()) * multiplyed
+        multiplied *= MULTIPLY_TO
+        multiplied %= DIV_TO
+        answer += int(sys.stdin.readline()) * multiplied
         answer %= DIV_TO
 
     return answer
