@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.7]
+        python-version: ['pypy3']
 
     steps:
       - uses: actions/checkout@v2
@@ -17,8 +17,8 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install pytest
+          pypy3 -m pip install --upgrade pip
+          pypy3 -m pip install pytest
       - name: Test with pytest
         run: |
-          pytest problems/*.py
+          pypy3 -m pytest problems/*.py
