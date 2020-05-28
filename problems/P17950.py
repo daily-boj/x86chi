@@ -18,8 +18,13 @@ def main():
 
 
 def test_main():
+    from time import time
+    start = time()
+
     sys.stdin = open('problems/17950.txt', 'r')
     assert main() == 2830
+
+    assert time() - start <= 0.5
 
 
 if __name__ == "__main__":

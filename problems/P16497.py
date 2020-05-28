@@ -13,9 +13,11 @@ def solution(N: int, data: list, stock: int):
 
 
 def test_solution():
-    assert solution(3, [[1, 2], [3, 6], [5, 8]], 1) == 0
-    assert solution(3, [[1, 2], [3, 4], [5, 8]], 1) == 1
-    assert solution(3, [[1, 2], [3, 6], [5, 8]], 2) == 1
+    from utils import check_time_limit
+    warped_solution = check_time_limit(solution, 2)
+    assert warped_solution(3, [[1, 2], [3, 6], [5, 8]], 1) == 0
+    assert warped_solution(3, [[1, 2], [3, 4], [5, 8]], 1) == 1
+    assert warped_solution(3, [[1, 2], [3, 6], [5, 8]], 2) == 1
 
 
 if __name__ == "__main__":

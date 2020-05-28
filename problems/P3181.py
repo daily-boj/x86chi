@@ -15,9 +15,11 @@ def solution(words: str):
 
 
 def test_solution():
-    assert solution('micro soft') == 'MS'
-    assert solution('biti ali i ne biti') == 'BNB'
-    assert solution('ali ja sam i jucer jeo') == 'AJSJJ'
+    from utils import check_time_limit
+    warped_solution = check_time_limit(solution, 1)
+    assert warped_solution('micro soft') == 'MS'
+    assert warped_solution('biti ali i ne biti') == 'BNB'
+    assert warped_solution('ali ja sam i jucer jeo') == 'AJSJJ'
 
 
 if __name__ == "__main__":
