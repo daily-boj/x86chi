@@ -15,8 +15,10 @@ def solution(C: list):
 
 
 def test_solution():
-    assert solution([3, 2, 3, 2]) == 8
-    assert solution([6, 4, 5, 5, 5, 5]) == 21
+    from utils import check_time_limit
+    warped_solution = check_time_limit(solution, 1)
+    assert warped_solution([3, 2, 3, 2]) == 8
+    assert warped_solution([6, 4, 5, 5, 5, 5]) == 21
 
 
 if __name__ == "__main__":
