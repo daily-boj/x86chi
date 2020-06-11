@@ -1,32 +1,8 @@
 def solution(coins: str):
+    binarys = coins.replace('H', '1').replace('T', '0')
     answer = [0]*8
-    뒤 = 'T'
     for index in range(38):
-        first = coins[index]
-        second = coins[index+1]
-        third = coins[index+2]
-        if first == 뒤:
-            if second == 뒤:
-                if third == 뒤:
-                    answer[0] += 1
-                else:
-                    answer[1] += 1
-            else:
-                if third == 뒤:
-                    answer[2] += 1
-                else:
-                    answer[3] += 1
-        else:
-            if second == 뒤:
-                if third == 뒤:
-                    answer[4] += 1
-                else:
-                    answer[5] += 1
-            else:
-                if third == 뒤:
-                    answer[6] += 1
-                else:
-                    answer[7] += 1
+        answer[int(binarys[index:index+3], 2)] += 1
     return answer
 
 
