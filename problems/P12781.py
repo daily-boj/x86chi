@@ -18,12 +18,8 @@ def solution(first: list, second: list):
     first_scope = ccw(*first, second[0]) * ccw(*first, second[1])
     second_scope = ccw(*second, first[0]) * ccw(*second, first[1])
 
-    if (first_scope == 0 and second_scope == 0):
-        if comparator(first[1], first[0]):
-            first[1], second[0] = first[0], second[1]
-        if comparator(second[1], second[0]):
-            second[1], second[0] = second[0], second[1]
-        return comparator(second[0], first[1]) and comparator(first[0], second[1])
+    if first_scope == 0 and second_scope == 0:
+        return False
 
     return first_scope <= 0 and second_scope <= 0
 
