@@ -2,14 +2,17 @@ from typing import List
 
 
 def solution(staffs: List[int], makeTO: int):
-    balloon = 0
-    time = 1
-    while balloon < makeTO:
-        for staff in staffs:
-            if time % staff == 0:
-                balloon += 1
-        time += 1
-    return time - 1
+    low = 0
+    heigh = 1000000000000
+
+    while low < heigh:
+        mid = (low + heigh) // 2
+        result = sum(map(lambda staff: mid // staff, staffs))
+        if result >= makeTO:
+            heigh = mid
+        else:
+            low = mid + 1
+    return low
 
 
 def test_solution():
