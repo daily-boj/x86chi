@@ -8,10 +8,10 @@ def solution(staffs: List[int], makeTO: int):
     while low < heigh:
         mid = (low + heigh) // 2
         result = sum(map(lambda staff: mid // staff, staffs))
-        if result >= makeTO:
-            heigh = mid
-        else:
+        if result < makeTO:
             low = mid + 1
+        else:
+            heigh = mid
     return low
 
 
