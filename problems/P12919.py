@@ -1,16 +1,26 @@
 def solution(start: str, to: str):
-    goalLength = len(to)
-    result = [False]
+    goalLength = len(start)
 
-    def dfs(start):
-        if (len(start)) == goalLength:
-            if start == to:
-                result[0] = True
-            return
-        dfs(start + 'A')
-        dfs((start + 'B')[::-1])
-    dfs(start)
-    return result[0]
+    def backtrack(to: str):
+        if (len(to)) == goalLength:
+            return start == to
+
+        if to[0] == 'A':
+            if to[-1] == 'A':
+                return backtrack(to[:-1])
+            return False  # A~B의 경우는 없다.
+
+        # B~A 1, 2 가능
+        # B~B 2 가능한다
+        if to[-1] == 'A':
+            return backtrack(to[:-1]) or backtrack(to[::-1][:-1])
+        return backtrack(to[::-1][:-1])
+
+    return backtrack(to)
+
+
+# 1) 맨 뒤에 A를 붙인다
+# 2) 맨 뒤에 B를 붙이고 뒤집기= > 뒤집고 앞에 B 붙이기
 
 
 def test_solution():
